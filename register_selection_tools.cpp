@@ -35,7 +35,7 @@
 #include "bridge/util.h"
 #include "tools/new_tools.h"
 #include "tools/selection_tools.h"
-
+#include "tools/myfunctions_tools.h"
 using namespace std;
 using namespace ug::bridge;
 
@@ -419,6 +419,29 @@ void RegisterSelectionTools(ProMeshRegistry& reg, string baseGrp)
 			.add_function("MarkCornersOfMarkedEdges", &MarkCornersOfMarkedEdges, grp, "",
 				"mesh # min angle | default | value=75D",
 				 TOOLTIP_MARK_CORNERS_OF_MARKED_EDGES);
+
+		grp = baseGrp + "/Custom";
+		reg.add_function("SelectGivenSubset", &SelectGivenSubset, grp, "",
+				"mesh #"
+				"subset index #"
+				"vertices || value=true #"
+				"edges || value=true #"
+				"faces || value=true #"
+				"volumes || value=true")
+			.add_function("SelectObstacleSurface",&SelectObstacleSurface,grp,"",
+				"mesh #")
+			.add_function("GetInfoFromObstacleSurface",&GetInfoFromObstacleSurface,grp,"",
+				"mesh #")
+			.add_function("MeasureObstacleSubsetLength",&MeasureObstacleSubsetLength,grp,"",
+				"mesh #")
+			.add_function("GetNumberOfEdgesOnObstacleSurface",&GetNumberOfEdgesOnObstacleSurface,grp,"",
+				"mesh #")
+			.add_function("FindLongestEdgeInObstacleSurface",&FindLongestEdgeInObstacleSurface,grp,"",
+				"mesh #")
+			.add_function("FindShortestEdgeInObstacleSurface",&FindShortestEdgeInObstacleSurface,grp,"",
+				"mesh #")
+			.add_function("MeasureAverageEdgeLengthInObstacleSurface",&MeasureAverageEdgeLengthInObstacleSurface,grp,"",
+				"mesh #");
 	}
 	UG_REGISTRY_CATCH_THROW(baseGrp);
 }

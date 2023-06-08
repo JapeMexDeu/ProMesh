@@ -52,7 +52,8 @@ set(SOURCES		mesh.cpp
 				tools/remeshing_tools.cpp
 				tools/selection_tools.cpp
 				tools/subset_tools.cpp
-				tools/topology_tools.cpp)
+				tools/topology_tools.cpp
+				tools/myfunctions_tools.cpp)
 
 
 ################################################################################
